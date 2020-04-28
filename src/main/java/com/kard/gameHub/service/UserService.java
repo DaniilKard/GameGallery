@@ -17,10 +17,14 @@ public class UserService {
         if (byId.isPresent()) {
             return byId.get();
         }
-        throw new Exception("User isn't exist!");
+        throw new Exception("User does not exist!");
     }
 
     public User saveUser(User user) {
         return userRepository.save(user);
+    }
+
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
     }
 }
